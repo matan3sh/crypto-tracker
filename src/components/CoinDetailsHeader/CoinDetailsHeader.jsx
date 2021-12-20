@@ -4,7 +4,7 @@ import { Ionicons, EvilIcons } from '@expo/vector-icons';
 
 import { styles } from './styles';
 
-const CoinDetaildHeader = ({ crypto }) => {
+const CoinDetailsHeader = ({ crypto }) => {
   return (
     <View style={styles.container}>
       <Ionicons name='chevron-back-sharp' size={30} color='white' />
@@ -20,4 +20,4 @@ const CoinDetaildHeader = ({ crypto }) => {
   );
 };
 
-export default CoinDetaildHeader;
+export default CoinDetailsHeader;

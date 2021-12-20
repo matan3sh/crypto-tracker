@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { spacing } from '../../styles';
 
 export const styles = StyleSheet.create({
   content: {
@@ -6,12 +7,12 @@ export const styles = StyleSheet.create({
   },
   downArrow: {
     alignSelf: 'center',
-    marginRight: 5,
+    marginRight: spacing[2],
   },
   icon: {
     height: 30,
     width: 30,
-    marginRight: 10,
+    marginRight: spacing[3],
     alignSelf: 'center',
   },
   title: {
@@ -22,7 +23,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    marginRight: 5,
+    marginRight: spacing[2],
   },
   textNormal: {
     color: '#fff',
@@ -43,8 +44,8 @@ export const styles = StyleSheet.create({
   },
   rankContainer: {
     backgroundColor: '#585858',
-    paddingHorizontal: 5,
-    borderRadius: 5,
-    marginRight: 5,
+    paddingHorizontal: spacing[2],
+    borderRadius: spacing[2],
+    marginRight: spacing[2],
   },
 });

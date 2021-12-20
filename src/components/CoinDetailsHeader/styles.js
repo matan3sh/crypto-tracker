@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
+import { spacing } from '../../styles';
 
 export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    paddingHorizontal: 10,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -18,19 +18,19 @@ export const styles = StyleSheet.create({
   text: {
     color: '#fff',
     fontWeight: 'bold',
-    marginHorizontal: 5,
+    marginHorizontal: spacing[2],
     fontSize: 15,
   },
   biggerText: {
     fontSize: 17,
     color: '#fff',
     fontWeight: 'bold',
-    marginHorizontal: 5,
+    marginHorizontal: spacing[2],
   },
   rank: {
     backgroundColor: '#585858',
     paddingHorizontal: 3,
     paddingVertical: 2,
-    borderRadius: 5,
+    borderRadius: spacing[2],
   },
 });
