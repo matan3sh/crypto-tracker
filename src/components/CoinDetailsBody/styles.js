@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { fontSize, spacing } from '../../styles';
+import { fontSize, radius, spacing } from '../../styles';
 
 export const styles = StyleSheet.create({
   container: {
@@ -18,9 +18,18 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     color: 'white',
   },
+  priceChangeContainer: {
+    backgroundColor: 'red',
+    paddingHorizontal: spacing[2],
+    paddingVertical: spacing[3],
+    borderRadius: radius[2],
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   priceChange: {
     fontSize: 17,
     fontWeight: '500',
     color: 'white',
+    marginLeft: spacing[2],
   },
 });

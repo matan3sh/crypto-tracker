@@ -31,7 +31,7 @@ const CoinItem = ({ coin }) => {
               coin.price_change_percentage_24h < 0 ? 'caretdown' : 'caretup'
             }
             size={12}
-            color={coin.price_change_percentage_24h < 0 ? '#ea3943' : '#16c784'}
+            color={percentageColor}
           />
           <Text style={[styles.text, { color: percentageColor }]}>
             {coin.price_change_percentage_24h.toFixed(2)}%
