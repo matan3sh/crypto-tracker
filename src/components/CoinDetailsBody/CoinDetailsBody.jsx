@@ -47,7 +47,10 @@ const CoinDetailsBody = ({ crypto }) => {
           </View>
         </View>
 
-        <CoinChart data={crypto.prices} />
+        <CoinChart
+          data={crypto.prices}
+          price={crypto.market_data.current_price.usd}
+        />
       </ChartPathProvider>
     </View>
   );
