@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { CoinDetailsBody, CoinDetailsHeader } from '../components';
+import { CoinChart, CoinDetailsBody, CoinDetailsHeader } from '../components';
 import crypto from '../../assets/data/crypto.json';
 import { spacing } from '../styles';
 
