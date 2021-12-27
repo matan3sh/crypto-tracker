@@ -9,6 +9,7 @@ const CoinChart = ({ data, price }) => {
   return (
     <View>
       <ChartPath
+        strokeWidth={2}
         height={screenWidth / 2}
         stroke={chartColor}
         width={screenWidth}

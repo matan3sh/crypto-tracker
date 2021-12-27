@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TextInput } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { ChartPathProvider, ChartYLabel } from '@rainbow-me/animated-charts';
 import { styles } from './styles';
@@ -51,6 +51,18 @@ const CoinDetailsBody = ({ crypto }) => {
           data={crypto.prices}
           price={crypto.market_data.current_price.usd}
         />
+
+        <View style={styles.converter}>
+          <View style={styles.converter}>
+            <Text style={styles.symbol}>{crypto.symbol.toUpperCase()}</Text>
+            <TextInput style={styles.input} />
+          </View>
+
+          <View style={styles.converter}>
+            <Text style={styles.symbol}>USD</Text>
+            <TextInput style={styles.input} />
+          </View>
+        </View>
       </ChartPathProvider>
     </View>
   );
