@@ -32,19 +32,25 @@ export const styles = StyleSheet.create({
     color: 'white',
     marginLeft: spacing[2],
   },
+  converterContainer: {
+    flexDirection: 'row',
+  },
   converter: {
+    flex: 1,
     flexDirection: 'row',
   },
   symbol: {
     color: 'white',
+    alignSelf: 'center',
   },
   input: {
-    width: 130,
+    flex: 1,
     height: 40,
     margin: 12,
     borderBottomWidth: 1,
     borderBottomColor: 'white',
     padding: 10,
     fontSize: 16,
+    color: 'white',
   },
 });
