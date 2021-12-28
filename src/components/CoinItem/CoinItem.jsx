@@ -1,9 +1,11 @@
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 import { styles } from './styles';
 
 const CoinItem = ({ coin }) => {
+  const navigation = useNavigation();
   const percentageColor =
     coin.price_change_percentage_24h < 0 ? '#ea3943' : '#16c784';
 
@@ -16,7 +18,9 @@ const CoinItem = ({ coin }) => {
   };
 
   return (
-    <View style={styles.row}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('Details', { coinId: coin.id })}
+      style={styles.row}>
       <Image source={{ uri: coin.image }} style={styles.icon} />
       <View>
         <Text style={styles.title}>{coin.name}</Text>
@@ -45,7 +49,7 @@ const CoinItem = ({ coin }) => {
           MCap {normalized(coin.market_cap)}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
