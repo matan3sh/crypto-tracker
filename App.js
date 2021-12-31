@@ -1,15 +1,18 @@
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
-import StackNavigation from './src/stackNavigation';
+import WatchlistProvider from './src/context/WatchlistContext';
+import StackNavigation from './src/navigation/stackNavigation';
 
 export default function App() {
   return (
     <NavigationContainer theme={{ colors: { background: '#121212' } }}>
-      <View style={styles.container}>
-        <StackNavigation />
-        <StatusBar style='light' />
-      </View>
+      <WatchlistProvider>
+        <View style={styles.container}>
+          <StackNavigation />
+          <StatusBar style='light' />
+        </View>
+      </WatchlistProvider>
     </NavigationContainer>
   );
 }

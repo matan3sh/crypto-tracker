@@ -2,7 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo, FontAwesome } from '@expo/vector-icons';
 
-import { HomeScreen, WatchlistScreen } from './screens';
+import { HomeScreen, WatchlistScreen } from '../screens';
 
 const Tab = createBottomTabNavigator();
 

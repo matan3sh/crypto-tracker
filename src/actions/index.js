@@ -1,8 +1,8 @@
 import CoinApi from '../lib/api/coin';
 
-export const getMarketData = async () => {
+export const getMarketData = async (pageNumber = 1) => {
   try {
-    const { data } = await new CoinApi().getAll();
+    const { data } = await new CoinApi().getAll(pageNumber);
     return data;
   } catch (error) {
     console.log(error);

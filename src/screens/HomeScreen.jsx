@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, ActivityIndicator } from 'react-native';
+import { FlatList, RefreshControl } from 'react-native';
 import { CoinItem } from '../components';
 import { getMarketData } from '../actions';
 
@@ -7,10 +7,11 @@ const HomeScreen = () => {
   const [marketData, setMarketData] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const fetchMarketData = async () => {
+  const fetchMarketData = async (pageNumber) => {
+    if (loading) return;
     setLoading(true);
-    const coinsData = await getMarketData();
-    setMarketData(coinsData);
+    const coinsData = await getMarketData(pageNumber);
+    setMarketData((prevData) => [...prevData, ...coinsData]);
     setLoading(false);
   };
 
@@ -18,14 +19,26 @@ const HomeScreen = () => {
     fetchMarketData();
   }, []);
 
-  if (loading || !marketData) {
-    return <ActivityIndicator size='large' />;
-  }
+  const reFetchMarketData = async () => {
+    if (loading) return;
+    setLoading(true);
+    const coinsData = await getMarketData();
+    setMarketData(coinsData);
+    setLoading(false);
+  };
 
   return (
     <FlatList
-      renderItem={({ item }) => <CoinItem coin={item} />}
       data={marketData}
+      renderItem={({ item }) => <CoinItem coin={item} />}
+      onEndReached={() => fetchMarketData(marketData.length / 50 + 1)}
+      refreshControl={
+        <RefreshControl
+          refreshing={loading}
+          tintColor='white'
+          onRefresh={reFetchMarketData}
+        />
+      }
     />
   );
 };
