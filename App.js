@@ -1,13 +1,13 @@
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
-import Navigation from './src/navigation';
+import StackNavigation from './src/stackNavigation';
 
 export default function App() {
   return (
     <NavigationContainer theme={{ colors: { background: '#121212' } }}>
       <View style={styles.container}>
-        <Navigation />
+        <StackNavigation />
         <StatusBar style='light' />
       </View>
     </NavigationContainer>
