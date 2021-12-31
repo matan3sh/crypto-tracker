@@ -7,7 +7,13 @@ class CoinApi {
 
   getById(id) {
     return axios.get(
-      `${this.apiUrl}/${id}?localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false`
+      `${this.apiUrl}/${id}?localization=false&community_data=false&developer_data=false&sparkline=false`
+    );
+  }
+
+  getChartData(id) {
+    return axios.get(
+      `${this.apiUrl}/${id}/market_chart?vs_currency=usd&days=1&interval=hourly`
     );
   }
 }

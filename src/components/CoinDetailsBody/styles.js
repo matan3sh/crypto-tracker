@@ -19,7 +19,6 @@ export const styles = StyleSheet.create({
     color: 'white',
   },
   priceChangeContainer: {
-    backgroundColor: 'red',
     paddingHorizontal: spacing[2],
     paddingVertical: spacing[3],
     borderRadius: radius[2],

@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Ionicons, EvilIcons } from '@expo/vector-icons';
 import { styles } from './styles';
 
-const CoinDetailsHeader = ({ crypto }) => {
+const CoinDetailsHeader = ({ coin }) => {
   const navigation = useNavigation();
 
   return (
@@ -13,10 +13,10 @@ const CoinDetailsHeader = ({ crypto }) => {
         <Ionicons name='chevron-back-sharp' size={30} color='white' />
       </TouchableOpacity>
       <View style={styles.tickerContainer}>
-        <Image style={styles.imageSmall} source={{ uri: crypto.image.small }} />
-        <Text style={styles.biggerText}>{crypto.symbol.toUpperCase()}</Text>
+        <Image style={styles.imageSmall} source={{ uri: coin.image.small }} />
+        <Text style={styles.biggerText}>{coin.symbol.toUpperCase()}</Text>
         <View style={styles.rank}>
-          <Text style={styles.text}>#{crypto.market_data.market_cap_rank}</Text>
+          <Text style={styles.text}>#{coin.market_cap_rank}</Text>
         </View>
       </View>
       <EvilIcons name='user' size={30} color='white' />
