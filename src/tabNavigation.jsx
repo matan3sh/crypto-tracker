@@ -19,7 +19,7 @@ const TabNavigation = () => {
         },
       }}>
       <Tab.Screen
-        name={'Home'}
+        name='Home'
         component={HomeScreen}
         options={{
           tabBarIcon: ({ focused, color }) => (
@@ -28,7 +28,7 @@ const TabNavigation = () => {
         }}
       />
       <Tab.Screen
-        name={'Watchlist'}
+        name='Watchlist'
         component={WatchlistScreen}
         options={{
           tabBarIcon: ({ focused, color }) => (

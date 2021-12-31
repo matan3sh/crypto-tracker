@@ -10,8 +10,8 @@ const StackNavigation = () => {
     <Stack.Navigator
       initialRouteName='Root'
       screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={'Root'} component={tabNavigation} />
-      <Stack.Screen name={'Details'} component={DetailsScreen} />
+      <Stack.Screen name='Root' component={tabNavigation} />
+      <Stack.Screen name='Details' component={DetailsScreen} />
     </Stack.Navigator>
   );
 };

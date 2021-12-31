@@ -5,6 +5,12 @@ class CoinApi {
     this.apiUrl = 'https://api.coingecko.com/api/v3/coins';
   }
 
+  getAll() {
+    return axios.get(
+      `${this.apiUrl}/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=24h`
+    );
+  }
+
   getById(id) {
     return axios.get(
       `${this.apiUrl}/${id}?localization=false&community_data=false&developer_data=false&sparkline=false`
