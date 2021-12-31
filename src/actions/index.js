@@ -26,3 +26,12 @@ export const getCoinChartData = async (id) => {
     console.log(error);
   }
 };
+
+export const getCoinsByIds = async (coinIds) => {
+  try {
+    const { data } = await new CoinApi().getCoinsByIds(coinIds);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

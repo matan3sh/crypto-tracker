@@ -1,11 +1,22 @@
 import React from 'react';
 import { Image, View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Ionicons, EvilIcons } from '@expo/vector-icons';
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import { useWatchlist } from '../../context/WatchlistContext';
 import { styles } from './styles';
 
 const CoinDetailsHeader = ({ coin }) => {
   const navigation = useNavigation();
+  const { watchlistCoinIds, addToWatchlist, removeFromWatchlist } =
+    useWatchlist();
+
+  const isCoinIsWatchlisted = () =>
+    watchlistCoinIds.some((coinId) => coinId === coin.id);
+
+  const onAddToWatchlist = () => {
+    if (isCoinIsWatchlisted()) removeFromWatchlist(coin.id);
+    else addToWatchlist(coin.id);
+  };
 
   return (
     <View style={styles.container}>
@@ -19,7 +30,12 @@ const CoinDetailsHeader = ({ coin }) => {
           <Text style={styles.text}>#{coin.market_cap_rank}</Text>
         </View>
       </View>
-      <EvilIcons name='user' size={30} color='white' />
+      <FontAwesome
+        size={25}
+        name={isCoinIsWatchlisted() ? 'star' : 'star-o'}
+        color={isCoinIsWatchlisted() ? '#FFBF00' : 'white'}
+        onPress={onAddToWatchlist}
+      />
     </View>
   );
 };

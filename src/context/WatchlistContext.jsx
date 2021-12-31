@@ -2,7 +2,6 @@ import React, { useContext, createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const WatchlistContext = createContext();
-
 export const useWatchlist = () => useContext(WatchlistContext);
 
 const WatchlistProvider = ({ children }) => {
