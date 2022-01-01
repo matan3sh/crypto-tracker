@@ -14,8 +14,8 @@ const CoinDetailsHeader = ({ coin }) => {
     watchlistCoinIds.some((coinId) => coinId === coin.id);
 
   const onAddToWatchlist = () => {
-    if (isCoinIsWatchlisted()) removeFromWatchlist(coin.id);
-    else addToWatchlist(coin.id);
+    if (isCoinIsWatchlisted()) return removeFromWatchlist(coin.id);
+    return addToWatchlist(coin.id);
   };
 
   return (

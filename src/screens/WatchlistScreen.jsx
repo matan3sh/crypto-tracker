@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, RefreshControl } from 'react-native';
 import { useWatchlist } from '../context/WatchlistContext';
 import { CoinItem } from '../components';
 import { getCoinsByIds } from '../actions';
@@ -12,21 +12,28 @@ const WatchlistScreen = () => {
   const fetchWatchlist = async () => {
     if (loading) return;
     setLoading(true);
-    const watchListData = await getCoinsByIds(watchlistCoinIds);
+    const watchListData = await getCoinsByIds(watchlistCoinIds.join('%2C'));
     setCoins(watchListData);
     setLoading(false);
   };
 
   useEffect(() => {
-    fetchWatchlist();
-  }, []);
-
-  console.log(coins);
+    if (watchlistCoinIds.length > 0) {
+      fetchWatchlist();
+    }
+  }, [watchlistCoinIds]);
 
   return (
     <FlatList
-      data={watchlistCoinIds}
+      data={coins}
       renderItem={({ item }) => <CoinItem coin={item} />}
+      refreshControl={
+        <RefreshControl
+          refreshing={loading}
+          tintColor='white'
+          onRefresh={fetchWatchlist}
+        />
+      }
     />
   );
 };

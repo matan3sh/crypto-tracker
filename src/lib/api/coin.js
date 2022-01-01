@@ -25,9 +25,7 @@ class CoinApi {
 
   getCoinsByIds(coinIds) {
     return axios.get(
-      `${this.apiUrl}/markets?vs_currency=usd&ids=${coinIds.join(
-        '%2C'
-      )}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=24h`
+      `${this.apiUrl}/markets?vs_currency=usd&ids=${coinIds}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=24h`
     );
   }
 }
